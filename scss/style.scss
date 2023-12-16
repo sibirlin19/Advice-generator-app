@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+$light-cyan: hsl(193, 38%, 86%);
+$neo-green: hsl(150, 100%, 66%);
+$grayish-blue: hsl(217, 19%, 38%);
+$dark-grayish-blue: hsl(217, 19%, 24%);
+$dark-blue: hsl(218, 23%, 16%);
+$font-main: "Manrope", sans-serif;
+
+%center-shared {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%round-element {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @extend %center-shared;
+  background-color: $dark-blue;
+  font-family: $font-main;
+  height: 100vh;
+}
+
+.advice__main {
+  @extend %center-shared;
+  flex-direction: column;
+  position: relative;
+  background-color: $dark-grayish-blue;
+  min-width: 600px;
+  min-height: 400px;
+  border-radius: 10px;
+  .advice__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-width: 300px;
+    min-height: 200px;
+    background-color: $dark-grayish-blue;
+
+    .advice__title {
+      h2,
+      span {
+        display: inline-block;
+        font-size: initial;
+        font-weight: initial;
+      }
+      text-align: center;
+      font-size: 20px;
+      letter-spacing: 3px;
+      width: 200px;
+      color: $neo-green;
+    }
+    p {
+      text-align: center;
+      font-size: 25px;
+      color: $light-cyan;
+      width: 500px;
+      height: 70px;
+      margin-bottom: 3rem;
+    }
+    .advice__brackets {
+      bottom: -14px;
+    }
+  }
+  .advice__button {
+    @extend %round-element;
+    background-color: $neo-green;
+    bottom: -20px;
+
+    cursor: pointer;
+    &:active {
+      box-shadow: 0px 0px 20px $neo-green;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .advice__main {
+    min-width: 400px;
+    .advice__container {
+      width: 100px;
+      p {
+        width: 300px;
+      }
+    }
+    .advice__brackets {
+      width: 300px;
+      img {
+        width: 300px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .advice__main {
+    min-width: 300px;
+    .advice__brackets {
+      width: 300px;
+      margin-top: 50px;
+    }
+  }
+}
